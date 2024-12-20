@@ -1893,7 +1893,7 @@ namespace DaggerfallWorkshop.Game.UserInterfaceWindows
             if (actionMode == ActionModes.Equip ||
                 actionMode == ActionModes.Select)
             {
-                UnequipItem(item);
+                
             }
             else if (actionMode == ActionModes.Info)
             {
@@ -1939,7 +1939,7 @@ namespace DaggerfallWorkshop.Game.UserInterfaceWindows
             if (actionMode == ActionModes.Equip ||
                 actionMode == ActionModes.Select)
             {
-                UnequipItem(item);
+                
             }
             else if (actionMode == ActionModes.Use)
             {
