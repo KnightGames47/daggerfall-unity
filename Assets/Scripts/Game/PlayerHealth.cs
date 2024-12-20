@@ -1,4 +1,4 @@
-﻿// Project:         Daggerfall Unity
+// Project:         Daggerfall Unity
 // Copyright:       Copyright (C) 2009-2023 Daggerfall Workshop
 // Web Site:        http://www.dfworkshop.net
 // License:         MIT License (http://www.opensource.org/licenses/mit-license.php)
@@ -31,19 +31,6 @@ namespace DaggerfallWorkshop.Game
         }
 
         /// <summary>
-        /// Player has been damaged.
-        /// </summary>
-        void RemoveHealth(int amount)
-        {
-            GetComponent<ShowPlayerDamage>().Flash();
-            if (entityBehaviour)
-            {
-                PlayerEntity entity = entityBehaviour.Entity as PlayerEntity;
-                entity.DecreaseHealth(amount);
-            }
-        }
-
-        /// <summary>
         /// Player has been damaged by a fall.
         /// </summary>
         void ApplyPlayerFallDamage(float fallDistance)
@@ -54,7 +41,6 @@ namespace DaggerfallWorkshop.Game
             if (entityBehaviour)
             {
                 int damage = (int)(HPPerMetre * (fallDistance - threshold));
-                RemoveHealth(damage);
             }
         }
     }

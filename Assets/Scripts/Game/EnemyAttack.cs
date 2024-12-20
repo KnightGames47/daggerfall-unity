@@ -403,8 +403,6 @@ namespace DaggerfallWorkshop.Game
 
         private void SendDamageToPlayer()
         {
-            GameManager.Instance.PlayerObject.SendMessage("RemoveHealth", damage);
-
             EnemyEntity entity = entityBehaviour.Entity as EnemyEntity;
             Items.DaggerfallUnityItem weapon = entity.ItemEquipTable.GetItem(Items.EquipSlots.RightHand);
             if (weapon == null)
