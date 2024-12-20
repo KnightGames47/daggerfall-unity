@@ -820,7 +820,8 @@ PrefabInstance:
       propertyPath: m_BeforeStackBundles.Array.data[0].assemblyQualifiedName
       value: ColorBoost, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 10800000, guid: 53a45b46ca97a974f8e677f68c2a85e6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 53a45b46ca97a974f8e677f68c2a85e6, type: 3}
 --- !u!1 &348738038
 GameObject:
@@ -2088,13 +2089,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runtimeInternalStrings: Internal_Strings
   runtimeRSCStrings: Internal_RSC
-  runtimeBOKStrings: Internal_BOK
   runtimeFlatStrings: Internal_Flats
+  runtimeQuestsStrings: Internal_Quests
+  runtimeLocationsStrings: Internal_Locations
+  runtimeSettingsStrings: Internal_Settings
+  runtimeSpellsStrings: Internal_Spells
+  runtimeItemsStrings: Internal_Items
+  runtimeMagicItemsStrings: Internal_MagicItems
+  runtimeFactionsStrings: Internal_Factions
   tableCopyOverwriteTargetStringTables: 0
   tableCopyTargetInternalStrings: 
   tableCopyTargetRSCStrings: 
   tableCopyTargetBOKStrings: 
   tableCopyTargetFlatStrings: 
+  tableCopyTargetLocationStrings: 
 --- !u!4 &1437448955
 Transform:
   m_ObjectHideFlags: 0
