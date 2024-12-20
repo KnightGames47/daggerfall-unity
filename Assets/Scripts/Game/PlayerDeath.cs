@@ -1,4 +1,4 @@
-﻿// Project:         Daggerfall Unity
+// Project:         Daggerfall Unity
 // Copyright:       Copyright (C) 2009-2023 Daggerfall Workshop
 // Web Site:        http://www.dfworkshop.net
 // License:         MIT License (http://www.opensource.org/licenses/mit-license.php)
@@ -151,9 +151,7 @@ namespace DaggerfallWorkshop.Game
                 return;
 
             // Start the death process and pause player input
-            deathInProgress = true;
             timeOfDeath = Time.fixedTime;
-            InputManager.Instance.IsPaused = true;
 
             // Start camera falling and fading to black
             startCameraHeight = mainCamera.transform.localPosition.y;
