@@ -1258,8 +1258,7 @@ namespace DaggerfallWorkshop.Game
                 // No retreat if enemy is player with bow or weapon not out
                 if (senses.Target == GameManager.Instance.PlayerEntityBehaviour
                     && GameManager.Instance.WeaponManager.ScreenWeapon
-                    && (GameManager.Instance.WeaponManager.ScreenWeapon.WeaponType == WeaponTypes.Bow
-                    || !GameManager.Instance.WeaponManager.ScreenWeapon.ShowWeapon))
+                    && (GameManager.Instance.WeaponManager.ScreenWeapon.WeaponType == WeaponTypes.Bow))
                 {
                     moveInForAttack = true;
                     return;

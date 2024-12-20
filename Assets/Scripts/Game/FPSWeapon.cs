@@ -50,7 +50,6 @@ namespace DaggerfallWorkshop.Game
             public Dictionary<int, Texture2D> Textures { get; set; }
         }
 
-        public bool ShowWeapon = true;
         public bool FlipHorizontal = false;
         public WeaponTypes WeaponType = WeaponTypes.None;
         public MetalTypes MetalType = MetalTypes.None;
@@ -174,13 +173,6 @@ namespace DaggerfallWorkshop.Game
             // Update weapon state only as needed
             if (updateWeapon)
                 UpdateWeapon();
-
-            if (Event.current.type.Equals(EventType.Repaint) && ShowWeapon)
-            {
-                // Draw weapon texture behind other HUD elements
-                Texture2D tex = curCustomTexture ? curCustomTexture : weaponAtlas.AtlasTexture;
-                DaggerfallUI.DrawTextureWithTexCoords(GetWeaponRect(), tex, curAnimRect, true, Tint);
-            }
         }
 
         private void LateUpdate()
@@ -351,13 +343,6 @@ namespace DaggerfallWorkshop.Game
                 return;
             }
 
-            // Reset state if weapon not visible
-            if (!ShowWeapon || WeaponType == WeaponTypes.None)
-            {
-                weaponState = WeaponStates.Idle;
-                currentFrame = 0;
-            }
-
             // Handle bow with no arrows
             if (!GameManager.Instance.WeaponManager.Sheathed && WeaponType == WeaponTypes.Bow && GameManager.Instance.PlayerEntity.Items.GetItem(Items.ItemGroups.Weapons, (int)Items.Weapons.Arrow, allowQuestItem: false) == null)
             {
@@ -493,7 +478,7 @@ namespace DaggerfallWorkshop.Game
         {
             while (true)
             {
-                if (weaponAnims != null && ShowWeapon)
+                if (weaponAnims != null)
                 {
                     int frameBeforeStepping = currentFrame;
 
@@ -527,8 +512,6 @@ namespace DaggerfallWorkshop.Game
                             if (IsPlayingOneShot())
                             {
                                 ChangeWeaponState(WeaponStates.Idle);   // If this is a one-shot anim go to queued weapon state
-                                if (WeaponType == WeaponTypes.Bow)
-                                    ShowWeapon = false;                 // Immediately hide bow so its idle frame doesn't show before it is hidden for its cooldown
                             }
                             else if (WeaponType == WeaponTypes.Bow && !DaggerfallUnity.Settings.BowDrawback)
                                 currentFrame = 3;

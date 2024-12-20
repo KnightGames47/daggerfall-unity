@@ -231,7 +231,6 @@ namespace DaggerfallWorkshop.Game
             // Do nothing if player paralyzed or is climbing
             if (GameManager.Instance.PlayerEntity.IsParalyzed || GameManager.Instance.ClimbingMotor.IsClimbing)
             {
-                ShowWeapons(false);
                 return;
             }
 
@@ -254,7 +253,6 @@ namespace DaggerfallWorkshop.Game
                     }
                     else
                     {
-                        ShowWeapons(false);
                         return;
                     }
                 }
@@ -272,18 +270,8 @@ namespace DaggerfallWorkshop.Game
             if ((usingRightHand && EquipCountdownRightHand != 0)
                 || (!usingRightHand && EquipCountdownLeftHand != 0))
             {
-                ShowWeapons(false);
                 return;
             }
-
-            // Do nothing if weapons sheathed
-            if (Sheathed)
-            {
-                ShowWeapons(false);
-                return;
-            }
-            else
-                ShowWeapons(true);
 
             // Do nothing if player has cursor active over large HUD (player is clicking on HUD not clicking to attack)
             if (GameManager.Instance.PlayerMouseLook.cursorActive &&
@@ -437,7 +425,6 @@ namespace DaggerfallWorkshop.Game
         public void SheathWeapons()
         {
             Sheathed = true;
-            ShowWeapons(false);
         }
 
         public void Reset()
@@ -884,12 +871,6 @@ namespace DaggerfallWorkshop.Game
         private bool IsWeaponAttacking()
         {
             return ScreenWeapon && ScreenWeapon.IsAttacking();
-        }
-
-        private void ShowWeapons(bool show)
-        {
-            if (ScreenWeapon)
-                ScreenWeapon.ShowWeapon = show;
         }
 
         private void MeleeDamage(FPSWeapon weapon, out bool hitEnemy)
